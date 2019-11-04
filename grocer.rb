@@ -5,7 +5,7 @@ def find_item_by_name_in_collection(name, collection)
   index = 0
 
   while index < collection.length do
-    if (collection[index][:item] == name)
+    if collection[index][:item] == name
       return collection[index]
     end
     index += 1
@@ -25,15 +25,15 @@ def consolidate_cart(cart)
     if output.length == 0
       output << cart[index]
       output[-1][:count] = 1
-    elsif find_item_by_name_in_collection(cart[index][:name], output) == nil
+    elsif find_item_by_name_in_collection(cart[index][:item], output) == nil
       output << cart[index]
       output[-1][:count] = 1
     else
-      itemhold = find_item_by_name_in_collection(cart[index][:name], output)
+      itemhold = find_item_by_name_in_collection(cart[index][:item], output)
       index2 = 0
 
       while index2 < output.length do
-        if itemhold[:name] == output[index2][:name]
+        if itemhold[:item] == output[index2][:item]
           output[index2][:count] += 1
         end
         index2 += 1
