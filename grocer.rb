@@ -29,7 +29,7 @@ def consolidate_cart(cart)
     else
       index2 = 0
       itemholder = find_item_by_name_in_collection(cart[index1][:name], output)
-
+      return itemholder + " " + output
         while index2 < output.length do
           if itemholder[:name] == output[index2][:name]
             output[index2][:count] += 1
