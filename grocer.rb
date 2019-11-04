@@ -54,8 +54,8 @@ def apply_coupons(cart, coupons)
     couponIndex = 0
     while couponIndex < coupons.length do
       if cart[cartIndex][:item] == coupons[couponIndex][:item] && cart[cartIndex][:count] >= coupons[couponIndex][:num]
-        cart << {
-          item: cart[cartIndex][:item] + " W/ COUPON"}
+        cart << cart[cartIndex]
+        cart[-1][:item] += " W/COUPON"
         cart[cartIndex][:count] -= coupons[couponIndex][:num]
       end
       couponIndex += 1
