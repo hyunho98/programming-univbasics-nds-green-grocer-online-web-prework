@@ -38,8 +38,8 @@ def consolidate_cart(cart)
         end
         index2 += 1
       end
-      index += 1
     end
+    index += 1
   end
 output
 end
