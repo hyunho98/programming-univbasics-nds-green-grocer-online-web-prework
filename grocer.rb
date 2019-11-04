@@ -39,6 +39,7 @@ def consolidate_cart(cart)
         index2 += 1
       end
       index += 1
+    end
   end
 output
 end
