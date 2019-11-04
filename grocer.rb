@@ -54,8 +54,12 @@ def apply_coupons(cart, coupons)
     couponIndex = 0
     while couponIndex < coupons.length do
       if cart[cartIndex][:item] == coupons[couponIndex][:item] && cart[cartIndex][:count] >= coupons[couponIndex][:num]
-        cart << cart[cartIndex]
-        cart[-1][:item] += " W/COUPON"
+        cart << {
+          item: cart[cartIndex][:item] + " W/COUPON",
+          price: coupons[couponIndex][:cost] / coupons[couponIndex][:num],
+          clearance: cart[cartIndex][:clearance],
+          count: coupons[couponIndex][:num] * (cart[cartIndex][:count] / coupons[couponIndex][:num])
+        }
         cart[cartIndex][:count] -= coupons[couponIndex][:num]
       end
       couponIndex += 1
